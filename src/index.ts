@@ -13,6 +13,10 @@
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+		if(request.method == "GET"){
+			console.log(request)
+			return Response.json(JSON.stringify(request));
+		}
+		return new Response("yo")
 	},
 } satisfies ExportedHandler<Env>;
